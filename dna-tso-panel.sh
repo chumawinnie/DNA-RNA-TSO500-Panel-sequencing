@@ -1,0 +1,18 @@
+/usr/local/bin/nextflow run nf-core/sarek -r 3.4.4 -profile docker \
+  --input ~/tso-500-sarek-DNA/True-sight-onocology500-DNA.csv \
+  --outdir ~/tso-500-sarek-DNA/result-folder \
+  --genome hg19 \
+  --dbsnp /home/obiorach/whole-Exon-single-seq/ref-genome/known_sites.vcf/dbsnp_138.hg19.vcf.gz \
+  --known_indels /home/obiorach/whole-Exon-single-seq/ref-genome/known_indels.vcf/Mills_and_1000G_gold_standard.indels.hg19.sites.vcf.gz \
+  --pon /home/obiorach/whole-Exon-single-seq/ref-genome/panel-of-normal/updated_Mutect2-exome-panel_vcf.vcf.gz \
+  --germline_resource /home/obiorach/whole-Exon-single-seq/ref-genome/germline-resource/renamed_gnomad.vcf.gz \
+  --max_cpus 20 \
+  --max_memory '30 GB' \
+  --wes \
+  --intervals ~/datasets/auxiliary_files_and_databases/TSO-500-analysis/M144821D.target_bed_somatic_callable_regions.bed \
+  --tools mutect2,vep,manta,tiddit \
+  --vep_cache /home/obiorach/vep_cache \
+  --vep_species homo_sapiens \
+  --vep_genome GRCh37 \
+  --vep_cache_version 112 \
+  -c ~/tso-500-sarek-DNA/custom.config
