@@ -1,0 +1,13 @@
+nextflow run nf-core/rnaseq -r 3.15.0 -profile docker \
+  --input ~/tso-500-@uka-RNA/nfcore_rnaseq_samplesheet.csv \
+  --outdir ~/tso-500-@uka-RNA/rnaseq_results \
+  --fasta ~/rnaseq-ref-genome/ref-genome/GRCh37.primary_assembly.genome.fa \
+  --gtf ~/rnaseq-ref-genome/gtf-files/gencode.v47lift37.basic.annotation.gtf \
+  --aligner star_salmon \
+  --gencode \
+  --max_cpus 16 \
+  --max_memory '64 GB' \
+  --featurecounts_group_type gene_type \
+  --remove_ribo_rna \
+  --save_trimmed \
+  -c ~/tso-500-@uka-RNA/custom.config
